@@ -7,11 +7,10 @@ public class WaterBall : MonoBehaviour
     public float delay = 3f;
     public float radius = 5f;
     public float force = 200f;
-
     public GameObject splashEffect;
 
-    float countdown;
-    bool hasSplashed = false;
+    private float countdown;
+    private bool hasSplashed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +33,8 @@ public class WaterBall : MonoBehaviour
 
     }
 
-    void Splash()
+    private void Splash()
     {
-
-        //Instantiate(splashEffect, transform.position, transform.rotation);
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
@@ -48,12 +45,14 @@ public class WaterBall : MonoBehaviour
             {
                 rb.AddExplosionForce(force, transform.position, radius);
             }
+        }
 
+        if (splashEffect != null)
+        {
+            Instantiate(splashEffect, transform.position, transform.rotation);
         }
 
         Destroy(gameObject);
 
     }
-
-
 }
