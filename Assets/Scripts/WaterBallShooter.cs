@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Shooter class that generates waterballs with a throwforce
+/// Needs to be attached to a first person camera
+/// </summary>
 public class WaterBallShooter : MonoBehaviour
 {
 
     [SerializeField] private float throwForce = 40f;
     [SerializeField] private GameObject waterBallPrefab;
 
+    // Update is called once per frame
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))
@@ -16,6 +22,9 @@ public class WaterBallShooter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Instantiates the waterball from the prefab and adds a throwforce
+    /// </summary>
     private void ShootBall()
     {
         GameObject waterBall = Instantiate(waterBallPrefab, transform.position, transform.rotation);
