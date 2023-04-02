@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -61,6 +59,5 @@ public class WaterBall : MonoBehaviour
 
         //Destroys the game object once it is done
         Destroy(gameObject);
-
     }
 }
